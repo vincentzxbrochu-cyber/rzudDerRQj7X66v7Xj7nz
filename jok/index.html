@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Landing Page</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+background:url("https://s13.gifyu.com/images/bdIcd.png") center center/cover no-repeat;
+}
+
+/* Overlay */
+body::before{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.45);
+backdrop-filter:blur(2px);
+}
+
+/* Card */
+.card{
+position:relative;
+z-index:2;
+width:340px;
+padding:30px;
+text-align:center;
+background:rgba(255,255,255,.1);
+backdrop-filter:blur(10px);
+border-radius:25px;
+border:1px solid rgba(255,255,255,.2);
+box-shadow:0 0 30px rgba(255,255,255,.15);
+}
+
+/* Avatar */
+.avatar{
+width:140px;
+height:140px;
+margin:auto;
+border-radius:50%;
+padding:5px;
+background:linear-gradient(45deg,#ff0080,#ff66cc,#ffffff,#ff0080);
+background-size:300% 300%;
+animation:borderGlow 5s linear infinite;
+}
+
+.avatar img{
+width:100%;
+height:100%;
+border-radius:50%;
+object-fit:cover;
+}
+
+@keyframes borderGlow{
+0%{background-position:0%;}
+100%{background-position:300%;}
+}
+
+h1{
+margin-top:20px;
+color:#fff;
+font-size:28px;
+}
+
+p{
+color:#eee;
+margin:10px 0 25px;
+}
+
+/* Button */
+.play-btn{
+position:relative;
+display:inline-block;
+padding:15px 45px;
+color:white;
+font-weight:bold;
+text-decoration:none;
+border-radius:50px;
+overflow:hidden;
+background:linear-gradient(90deg,#ff0080,#ff4da6);
+box-shadow:0 0 20px #ff0080;
+transition:.3s;
+}
+
+.play-btn:hover{
+transform:scale(1.08);
+}
+
+.play-btn::before{
+content:"";
+position:absolute;
+top:0;
+left:-120%;
+width:60%;
+height:100%;
+background:rgba(255,255,255,.8);
+transform:skewX(-25deg);
+animation:shine 2s infinite;
+}
+
+@keyframes shine{
+100%{
+left:150%;
+}
+}
+
+/* Love */
+.love{
+position:absolute;
+bottom:-30px;
+color:#ff4d88;
+font-size:20px;
+animation:loveFly linear forwards;
+pointer-events:none;
+}
+
+@keyframes loveFly{
+0%{
+transform:translateY(0) scale(.5);
+opacity:1;
+}
+100%{
+transform:translateY(-120vh) scale(2);
+opacity:0;
+}
+}
+
+@media(max-width:480px){
+.card{
+width:90%;
+}
+.avatar{
+width:120px;
+height:120px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="avatar">
+<img src="https://s13.gifyu.com/images/bd4Dn.jpg" alt="">
+</div>
+
+<h1>Alena Madisyn</h1>
+
+<p>There are many single girls here who don't spend money. When you are in, you can watch the latest movies 🎥💯 and you can meet any girl you like. ⬇️Join here⬇️.</p>
+
+<a href="#" class="https://fbme.app/d28deb6bf85a00">▶ PLAY</a>
+
+</div>
+
+<script>
+
+function createLove(){
+
+const love=document.createElement("div");
+
+love.className="love";
+
+love.innerHTML="❤";
+
+love.style.left=Math.random()*window.innerWidth+"px";
+
+love.style.animationDuration=(4+Math.random()*4)+"s";
+
+love.style.fontSize=(15+Math.random()*25)+"px";
+
+document.body.appendChild(love);
+
+setTimeout(()=>{
+love.remove();
+},8000);
+
+}
+
+setInterval(createLove,250);
+
+</script>
+
+</body>
+</html>
